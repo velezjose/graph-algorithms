@@ -1,5 +1,7 @@
 const { GeneralBinaryMinHeap: MinHeap } = require('./GeneralBinaryMinHeap.js');
-const { PR, start, finish } = require('./init.js');
+const { PR, start, finish } = require('./PRGraph.js');
+const { FakeCity, start: fakeStart, finish: fakeFinish } = require('./FakeCityGraph.js');
+
 
 const Dijkstra = function(graph, src, dest) {
   let distanceMap = new Map();
@@ -53,8 +55,11 @@ const Dijkstra = function(graph, src, dest) {
   return path.reverse();
 };
 
+// Shortest Path from San Juan to MayaWest
 let SJtoMaya = Dijkstra(PR, start, finish);
+SJtoMaya.forEach((city, i) => console.log(`${i}: ${city.name}`));
 
-SJtoMaya.forEach((city, i) => {
-  console.log(`${i}: ${city.name}`)
-});
+// Does not work with this FakeCity because it has negative weighted edges
+// If you don't believe me, try it out for yourself –> JS heap will run out of memory.
+// let FakeStartToFakeFinish = Dijkstra(PR, fakeStart, fakeFinish);
+// FakeStartToFakeFinish.forEach((city, i) => console.log(`${i}: ${city.name}`));
