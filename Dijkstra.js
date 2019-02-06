@@ -44,6 +44,11 @@ const Dijkstra = function(graph, src, dest) {
 
   }
 
+  // If it was never extracted from the minHeap, it means there is no path from src to dest
+  if (!extracted) {
+    return null;
+  }
+
   let path = [dest];
   let currentNode = parentMap.get(dest);
 
