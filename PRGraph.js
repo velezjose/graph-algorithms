@@ -5,17 +5,33 @@ const PR = new CityGraph();
 
 // Adding several cities to Puerto Rico.
 const start = PR.addCity('San Juan');
-PR.addCity('Guaynabo');
-PR.addCity('Rio Grande');
-PR.addCity('Humacao');
-PR.addCity('Culebras');
-PR.addCity('Caguas');
-PR.addCity('Ponce');
-PR.addCity('Arecibo');
-PR.addCity('Isabela');
-PR.addCity('Villalba');
-PR.addCity('Vega Baja');
+let a = PR.addCity('Guaynabo');
+let b = PR.addCity('Rio Grande');
+let c = PR.addCity('Humacao');
+let d = PR.addCity('Culebras');
+let e = PR.addCity('Caguas');
+let f = PR.addCity('Ponce');
+let g = PR.addCity('Arecibo');
+let h = PR.addCity('Isabela');
+let i = PR.addCity('Villalba');
+let j = PR.addCity('Vega Baja');
 const finish = PR.addCity('MayaWest');
+
+// Map from city to time it takes to get there (in minutes) from finish
+const timeMap = new Map();
+timeMap.set(start, 120);
+timeMap.set(a, 115);
+timeMap.set(b, 150);
+timeMap.set(c, 180);
+timeMap.set(d, Infinity);
+timeMap.set(e, 130);
+timeMap.set(f, 65);
+timeMap.set(g, 45);
+timeMap.set(h, 30);
+timeMap.set(i, 145);
+timeMap.set(j, 110);
+timeMap.set(finish, 0);
+
 
 // Adding several directed roads with distance in miles. 
 PR.addRoad('San Juan', 'Guaynabo', 10);
@@ -39,4 +55,5 @@ module.exports = {
   PR,
   start,
   finish,
+  timeMap,
 };
