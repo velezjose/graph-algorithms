@@ -1,5 +1,5 @@
 // Priority Queue implementation using a MinHeap.
-export default class MinHeap {
+class MinHeap {
   // Assigns a _storage array that will contain our heap.
   // First element is null so we can refer to parent and children with the 
   // following formulas:

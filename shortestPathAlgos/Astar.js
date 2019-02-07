@@ -1,5 +1,5 @@
-const { PR, start, finish, timeMap } = require('./PRGraph.js');
-const { GeneralBinaryMinHeap: MinHeap } = require('./GeneralBinaryMinHeap.js');
+const { PR, start, finish, timeMap } = require('../graphs/PRGraph.js');
+const { GeneralBinaryMinHeap: MinHeap } = require('../priorityQueues/GeneralBinaryMinHeap.js');
 
 const aStar = (graph, src, dest) => {
   let heuristicHeap = new MinHeap();

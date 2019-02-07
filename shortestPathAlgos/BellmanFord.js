@@ -1,5 +1,5 @@
-const { PR, start: SJ, finish: MayaWest } = require('./PRGraph.js');
-const { FakeCity, start: fakeStart, finish: fakeFinish } = require('./FakeCityGraph.js');
+// const { PR, start: SJ, finish: MayaWest } = require('../graphs/PRGraph.js');
+const { FakeCity, start: fakeStart, finish: fakeFinish } = require('../graphs/FakeCityGraph.js');
 
 const BellmanFord = (graph, src, dest) => {
   let parentMap = new Map();

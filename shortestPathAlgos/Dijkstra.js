@@ -1,6 +1,6 @@
-const { GeneralBinaryMinHeap: MinHeap } = require('./GeneralBinaryMinHeap.js');
-const { PR, start, finish } = require('./PRGraph.js');
-const { FakeCity, start: fakeStart, finish: fakeFinish } = require('./FakeCityGraph.js');
+const { GeneralBinaryMinHeap: MinHeap } = require('../priorityQueues/GeneralBinaryMinHeap.js');
+const { PR, start, finish } = require('../graphs/PRGraph.js');
+// const { FakeCity, start: fakeStart, finish: fakeFinish } = require('../graphs/FakeCityGraph.js');
 
 
 const Dijkstra = function(graph, src, dest) {
