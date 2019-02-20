@@ -55,7 +55,7 @@ module.exports = {
       // While element is greater than left or right AND while index is <= (1/2) * size of the heap
       //   ** this last condition occurs because we don't want to swap if index is more than 
       //   ** halfway through the heap
-      while ((this.getVal(idx) > this.leftVal(idx) || this.getVal(idx) > this.rightVal(idx)) && idx <= Math.floor(this.size() / 2)) {
+      while ((this.greaterThanLeft(idx) || this.greaterThanRight(idx)) && idx <= Math.floor(this.size() / 2)) {
         let val = this.get(idx);
         let smaller, smallerChildIdx;
 
@@ -119,6 +119,10 @@ module.exports = {
       return this.left(i) ? this.left(i).val: null;
     }
 
+    greaterThanLeft(idx) {
+      return (this.getVal(idx) > this.leftVal(idx)) && this.leftVal(idx) !== null;
+    }
+
     // Returns element to the right of i.
     right(i) {
       return this.get(i * 2 + 1);
@@ -126,6 +130,10 @@ module.exports = {
 
     rightVal(i) {
       return this.right(i) ? this.right(i).val : null;
+    }
+
+    greaterThanRight(idx) {
+      return (this.getVal(idx) > this.rightVal(idx)) && this.rightVal(idx) !== null;
     }
     
     // Getter for our _storage array.
