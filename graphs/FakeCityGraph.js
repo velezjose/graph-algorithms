@@ -1,9 +1,9 @@
 const { CityGraph } = require('./CityGraph.js');
 
-// Initializing Puerto Rico
+// Initializes a Fake City.
 const FakeCity = new CityGraph();
 
-// Adding several cities to Puerto Rico.
+// Adds several cities to a Fake City.
 const start = FakeCity.addCity('A');
 FakeCity.addCity('B');
 FakeCity.addCity('C');
@@ -16,7 +16,7 @@ FakeCity.addCity('H');
 FakeCity.addCity('I');
 const finish = FakeCity.addCity('J');
 
-// Adding several directed roads with distance in miles. 
+// Adds several directed roads with monetary cost (or some other weight for the road edge). 
 FakeCity.addRoad('A', 'B', 10);
 FakeCity.addRoad('A', 'C', 3);
 FakeCity.addRoad('A', 'D', 4);
@@ -35,7 +35,6 @@ FakeCity.addRoad('D', 'I', 8);
 FakeCity.addRoad('D', 'E', 11);
 FakeCity.addRoad('I', 'F', 0);
 FakeCity.addRoad('I', 'J', -100);
-FakeCity.addRoad('D', 'E', 11);
 
 module.exports = {
   FakeCity,
