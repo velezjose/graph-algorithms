@@ -1,6 +1,6 @@
 const { Queue } = require('./Queue.js');
 
-let queueTopSort = graph => {
+let queueTopologicalSort = graph => {
   let order = new Queue();
   let processNext = new Queue();
 
@@ -24,24 +24,6 @@ let queueTopSort = graph => {
   return order.toArray();
 };
 
-
-
-
-// Tests Section: 
-
-
-
-// Importing a FakeCityGraph from 
-const { FakeCity } = require('../graphs/FakeCityGraph.js');
-
-// Remove road to make the FakeCityGraph acyclic
-FakeCity.removeCity('F');
-
-let fcTopOrder = queueTopSort(FakeCity); 
-console.log(fcTopOrder, 'is the topological sort of Fake City graph.');
-
-
-// Importing Puerto Rico graph
-const { PR } = require('../graphs/PRGraph.js');
-let PRTopOrder = queueTopSort(PR);
-console.log(PRTopOrder, 'is the topological sort of Puerto Rico graph.')
+module.exports = {
+  queueTopologicalSort,
+};
