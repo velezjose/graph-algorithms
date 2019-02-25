@@ -69,6 +69,10 @@ module.exports = {
     removeRoad(fromName, toName) {
       let fromCity = this.find(fromName);
       let toCity = this.find(toName);
+
+      fromCity.outgoing = fromCity.outgoing.filter(road => road.from !== fromCity || road.to !== toCity);
+      toCity.incoming = toCity.incoming.filter(road => road.from !== fromCity || road.to !== toCity);
+
       let road = fromCity.outgoing.filter(road => road.from === fromCity && road.to === toCity)[0];
       this.roads.splice(this.roads.indexOf(road), 1);
       return road;
