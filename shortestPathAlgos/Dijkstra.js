@@ -29,19 +29,18 @@ const Dijkstra = function(graph, src, dest) {
     let { obj: currentCity } = current;
     extracted = currentCity === dest ? true : false;
 
-    if (!extracted) {
-      currentCity.outgoing.forEach(road => {
-        const { to: toCity, from: fromCity, distance } = road;
-  
-        if (distanceMap.get(toCity) > distanceMap.get(fromCity) + distance) {
-          distanceMap.set(toCity, distanceMap.get(fromCity) + distance);
-          parentMap.set(toCity, fromCity);
-        }
+    if (extracted) break;
 
-        mH.insert(distanceMap.get(toCity), toCity);
-      });
-    }
+    currentCity.outgoing.forEach(road => {
+      const { to: toCity, from: fromCity, distance } = road;
 
+      if (distanceMap.get(toCity) > distanceMap.get(fromCity) + distance) {
+        distanceMap.set(toCity, distanceMap.get(fromCity) + distance);
+        parentMap.set(toCity, fromCity);
+      }
+
+      mH.insert(distanceMap.get(toCity), toCity);
+    });
   }
 
   // If it was never extracted from the minHeap, it means there is no path from src to dest
